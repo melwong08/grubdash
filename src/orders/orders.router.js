@@ -11,7 +11,7 @@ router
 router
     .route("/:orderId")
     .get(controller.read)
-    .put(controler.update)
+    .put(controller.update)
     .delete(controller.delete)
     .all(methodNotAllowed);
 
