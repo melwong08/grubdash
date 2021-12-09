@@ -23,19 +23,15 @@ function create(req, res) {
 
 function dishBody(req, res, next){
     const { data: {name, description, price, image_url} = {}} = req.body;
-    //check for no name
-    if (!name || name === "") {
+       if (!name || name === "") {
         return next({status: 400, message: "Dish must include a name",});
     }
-    //check for no description
     if (!description || description === "") {
         return next({status: 400, message: "Dish must include a description",})
     }
-    //check for price is integer and greater than 0
     if (price <= 0 || !Number.isInteger(price)){
         return next({status: 400, message: "Dish must have a price that is an integer greater than 0",})
     }
-    //check for image url is missing or empty
     if (!image_url || image_url === "") {
         return next({status: 400, message: "Dish must include a image_url",})
     }
